@@ -37,7 +37,7 @@ $accountsArray = $mybusinessService->accounts->listAccounts()->getAccounts();
 $name = '<Name of Location group goes here>';
 $accountObject = new stdClass();
 foreach($accountsArray as $item) {
-    if ($name == $item->accountName) {
+    if ($name == $item->accountName && $item->type == "LOCATION_GROUP") {
         $accountObject = $item;
         break;
     }
@@ -75,4 +75,6 @@ $countTotal = getReviewCount($location);
 
 //Get reviews
 $reviewsArray = $mybusinessService->accounts_locations_reviews->listAccountsLocationsReviews($location->name)->getReviews();
+
+print_r($reviewsArray);
 ?>
